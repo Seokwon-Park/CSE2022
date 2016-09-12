@@ -14,11 +14,11 @@ double randnum(const double min, const double max)
 
 bool chkcir(const double x, const double y)
 {
-	const double x_c = 1.5;
+	const double x_c = 0.5;
 	const double y_c = 0.5;
 	const double r = 0.5;
 
-	const double f = (x - x_c)*(x - x_c) / 9 + (y - y_c)*(y - y_c) - r*r;
+	const double f = (x - x_c)*(x - x_c) + (y - y_c)*(y - y_c) - r*r;
 
 
 	if (f > 0.0)
@@ -30,17 +30,17 @@ bool chkcir(const double x, const double y)
 		return true;
 	}
 }
-//bool chk_square(const double x, const double y)
-//{
-//	if (y > 0.25 && y < 0.75 && x< 2.5 && x >0.5)
-//	{
-//		return true;
-//	}
-//	else
-//	{
-//		return false;
-//	}
-//}
+bool chk_square(const double x, const double y)
+{
+	if (y > 0.25 && y < 0.75 && x< 2.5 && x >0.5)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 
 void main()
 {
@@ -56,12 +56,12 @@ void main()
 		if (chkcir(x, y) == true)
 		{
 			fprintf(of, "%f %f\n", x, y);
-			//fprintf(of, "%f %f\n", x+2.0, y);
+			fprintf(of, "%f %f\n", x+2.0, y);
 		}
-		//else if (chk_square(x,y) == true)
-		//{
-		//	fprintf(of, "%f %f\n", x, y);
-		//}
+		else if (chk_square(x,y) == true)
+		{
+			fprintf(of, "%f %f\n", x, y);
+		}
 	}
 	fclose(of);
 }
