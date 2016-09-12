@@ -31,6 +31,21 @@ bool chkcir(const double x, const double y)
 	}
 }
 
+
+bool chk_square(const double x, const double y)
+{
+	if (y > 0.25 && y < 0.75 && x< 2.5 && x >0.5)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+
+
 void main()
 {
 	FILE *of = fopen("quiz.txt", "w");
@@ -45,7 +60,12 @@ void main()
 		if (chkcir(x, y) == true)
 		{
 			fprintf(of, "%f %f\n", x, y);
-		}		
+			fprintf(of, "%f %f\n", x + 2.0, y);
+		}
+		else if (chk_square(x, y) == true)
+		{
+			fprintf(of, "%f %f\n", x, y);
+		}
 	}
 	fclose(of);
 }
